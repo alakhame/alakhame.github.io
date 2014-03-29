@@ -1,12 +1,316 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="generator" content="AsciiDoc 8.2.5" />
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<title>slick - the last carousel you'll ever need</title>
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/monokai.min.css">
+	<link rel="stylesheet" type="text/css" href="css/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="description" content="slick is a responsive carousel jQuery plugin that supports multiple breakpoints, CSS3 transitions, touch events/swiping &amp; much more!">
+	<meta name="keywords" content="slick, responsive, carousel, slider, jQuery, plugin, CSS3, swipe, touch">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<title>git(1)</title>
+	  ga('create', 'UA-4390117-9', 'kenwheeler.github.io');
+	  ga('send', 'pageview');
+
+	</script>
 </head>
-hhhhhhhh
+<body>
+
+		<h1 class="title">slick</h1>
+		<p class="subheading">the last carousel you'll ever need</p>
+
+		<section class="blue">
+			<div class="content">
+				<h2>Features</h2>
+				<ul class="features">
+					<li>Fully responsive. Scales with it's container.</li>
+					<li>Separate settings per breakpoint</li>
+					<li>Uses CSS3 when available. Fully functional when not.</li>
+					<li>Swipe enabled. Or disabled, if you prefer.</li>
+					<li>Desktop mouse dragging</li>
+					<li>Infinite looping.</li>
+					<li>Autoplay, dots, arrows, callbacks, etc...</li>
+				</ul>
+				<hr/>
+				<h2>Single Item</h2>
+				<div class="slider single-item">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+				</div>
+				<pre><code>
+$('.single-item').slick();
+				</code></pre>
+				<hr/>
+				<h2>Multiple Items</h2>
+				<div class="slider multiple-items">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+					<div class="multiple"><h3>7</h3></div>
+					<div class="multiple"><h3>8</h3></div>
+					<div class="multiple"><h3>9</h3></div>
+				</div>
+				<pre><code>
+$('.multiple-items').slick({
+  infinite: false,
+  slidesToShow: 3,
+  slidesToScroll: 3
+});
+				</code></pre>
+				<hr/>
+				<h2>Responsive Display</h2>
+				<div class="slider responsive">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+					<div class="multiple"><h3>7</h3></div>
+					<div class="multiple"><h3>8</h3></div>
+				</div>
+				<pre><code>
+$('.responsive').slick({
+  dots: true,
+  infinite: false,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+});
+				</code></pre>
+				<hr/>
+				<h2>One At A Time</h2>
+				<div class="slider one-time">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+				</div>
+				<pre><code>
+$('.one-time').slick({
+  dots: false,
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  touchMove: false
+});
+				</code></pre>
+				<hr/>
+				<h2>Uneven Sets</h2>
+				<div class="slider uneven">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+				</div>
+				<pre><code>
+$('.uneven').slick({
+  slidesToShow: 4,
+  slidesToScroll: 4
+});
+				</code></pre>
+				<hr/>
+				<h2>Autoplay</h2>
+				<div class="slider autoplay">
+					<div class="multiple"><h3>1</h3></div>
+					<div class="multiple"><h3>2</h3></div>
+					<div class="multiple"><h3>3</h3></div>
+					<div class="multiple"><h3>4</h3></div>
+					<div class="multiple"><h3>5</h3></div>
+					<div class="multiple"><h3>6</h3></div>
+				</div>
+			<pre><code>
+$('.autoplay').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+});
+				</code></pre>
+				<hr/>
+				<h2>Destroy</h2>
+				<p class="destroy">If you really want to be that guy...</p>
+				<pre><code>
+$('.your-slider').unslick();
+				</code></pre>
+				<h4 class="more">and a whole lot more...</h4>
+				</div>
+		</section>
+		<section class="white">
+			<div class="content">
+				<h2 class="margin-40">Getting Started</h2>
+				<p>Set up your HTML</p>
+				<pre><code>
+&lt;div class="your-class"&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+  &lt;div&gt;your content&lt;/div&gt;
+&lt;/div&gt;
+				</code></pre>
+				<hr/>
+				<p>Add slick.css in your &lt;head&gt;</p>
+				<pre><code>
+&lt;link rel="stylesheet" type="text/css" href="slick.css"/&gt;
+				</code></pre>
+				<hr/>
+				<p>Add slick.js before your closing &lt;body&gt; tag (requires >= jQuery 1.7)</p>
+				<pre><code>
+&lt;script type="text/javascript" src="slick.min.js"&gt;&lt;/script&gt;
+				</code></pre>
+				<hr/>
+				<p>Initialize your slider in your scripts.js</p>
+				<pre><code>
+$('.your-class').slick({
+  setting-name: setting-value
+});
+				</code></pre>
+			</div>
+		</section>
+		<section class="blue">
+			<div class="content">
+				<h2>Settings</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>Setting</th>
+							<th>Value</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>autoplay</td>
+							<td>boolean, default: false</td>
+							<td>Enables Autoplay</td>
+						</tr>
+						<tr>
+							<td>dots</td>
+							<td>boolean, default: false</td>
+							<td>Show dot indicators</td>
+						</tr>
+						<tr>
+							<td>arrows</td>
+							<td>boolean, default: true</td>
+							<td>Prev/Next Arrows</td>
+						</tr>
+						<tr>
+							<td>draggable</td>
+							<td>boolean, default: true</td>
+							<td>Enable mouse dragging</td>
+						</tr>
+						<tr>
+							<td>infinite</td>
+							<td>boolean, default: true</td>
+							<td>Infinite loop sliding</td>
+						</tr>
+						<tr>
+							<td>onBeforeChange</td>
+							<td>function, default: null</td>
+							<td>Before slide callback</td>
+						</tr>
+						<tr>
+							<td>onAfterChange</td>
+							<td>function, default: null</td>
+							<td>After slide callback</td>
+						</tr>
+						<tr>
+							<td>responsive</td>
+							<td>object, default: null</td>
+							<td>Object containing breakpoints as keys and settings objects as values</td>
+						</tr>
+						<tr>
+							<td>slide</td>
+							<td>element, default: 'div'</td>
+							<td>Slide element</td>
+						</tr>
+						<tr>
+							<td>slidesToShow</td>
+							<td>int, default: 1</td>
+							<td># of slides to show</td>
+						</tr>
+						<tr>
+							<td>slidesToScroll</td>
+							<td>int, default: 1</td>
+							<td># of slides to scroll</td>
+						</tr>
+						<tr>
+							<td>speed</td>
+							<td>int(ms), default: 300</td>
+							<td>Slide speed</td>
+						</tr>
+						<tr>
+							<td>swipe</td>
+							<td>boolean, default: true</td>
+							<td>Enable swiping</td>
+						</tr>
+						<tr>
+							<td>touchMove</td>
+							<td>boolean, default: true</td>
+							<td>Enable slide motion with touch</td>
+						</tr>
+						<tr>
+							<td>touchThreshold</td>
+							<td>int, default: 5</td>
+							<td>Swipe distance threshold</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<section class="white">
+			<div class="content">
+				<h2>Go Get It</h2>
+				<a class="button first" href="https://github.com/kenwheeler/slick/archive/master.zip">Download Now</a>
+				<a class="button last" href="https://github.com/kenwheeler/slick/">View On Github</a>
+			</div>
+		</section>
+
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+		<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+		<script type="text/javascript" src="js/slick.js"></script>
+		<script type="text/javascript" src="js/scripts.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
